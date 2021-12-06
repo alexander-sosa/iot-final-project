@@ -16,59 +16,70 @@
     </nav>
     <div class="container">
         <center>
-            <h1>Control Panel</h1><br>
-            <div class="card" style="width: 18rem;">
-                <img id="qualityImage" class="card-img-top" src="%qualityImage%" alt="Air Quality Image">
-                <div class="card-body">
-                    <h5 class="card-title">Air Quality</h5>
-                    <p id="qualityMessage" class="card-text">%qualityMessage%</p>
-                    <p id="qualityMessage" class="card-text">Percentage: %qualityMessage%</p>
-                    <a href="#" class="btn btn-warning">Enable Manual Control</a>
+            <h1>Control Panel</h1>
+            <div class="container mt-5">
+                <div class="card" style="width: 80%;">
+                    <div class="row cardpadding">
+                        <div class="col-md-3">
+                            <center>
+                             <p style="text-align: center;">
+                                <img id="qualityImage" class="card-img-top" src="https://raw.githubusercontent.com/alexander-sosa/iot-final-project/main/img/caution.png" alt="Air Quality Image" style="width: 200px; height: 200px;">
+                            </p>
+                            </center>
+                        </div>
+                        <div class="col-md-9 mt-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Air Quality</h5>
+                                <p id="qualityMessage" class="card-text">%qualityMessage%</p>
+                                <p id="qualityMessage" class="card-text">
+                                    Percentage: %qualityMessage% <br>
+                                    Current Mode: %currentMode%
+                                </p>
+                                <a href="#" class="btn btn-warning">Enable Manual Control</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <br><br><h1>Fan's Control Panel</h1><br>
-            <div class="row row-cols-1 row-cols-md-4 g-4">
+    
+            <br><br><br><h1>Fan's Control Panel</h1><br>
+            <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4">
                 <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img id="qualityImage" class="card-img-top" src="%qualityImage%" alt="Air Quality Image">
+                    <div class="card">
+                        <img id="qualityImage" class="card-img-top" src="https://raw.githubusercontent.com/alexander-sosa/iot-final-project/main/img/fan off.png" alt="Air Quality Image">
                         <div class="card-body">
                             <h5 class="card-title">Fan 1</h5>
-                            <p id="qualityMessage" class="card-text">%qualityMessage%</p>
-                            <p id="qualityMessage" class="card-text">Percentage: %qualityMessage%</p>
+                            <p id="qualityMessage" class="card-text">State: %fan1State%</p>
                             <a href="#" class="btn btn-success">Turn on</a>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img id="qualityImage" class="card-img-top" src="%qualityImage%" alt="Air Quality Image">
+                    <div class="card">
+                        <img id="qualityImage" class="card-img-top" src="https://raw.githubusercontent.com/alexander-sosa/iot-final-project/main/img/fan on.png" alt="Air Quality Image">
                         <div class="card-body">
                             <h5 class="card-title">Fan 2</h5>
-                            <p id="qualityMessage" class="card-text">%qualityMessage%</p>
-                            <p id="qualityMessage" class="card-text">Percentage: %qualityMessage%</p>
+                            <p id="qualityMessage" class="card-text">State: %fan2State%</p>
                             <a href="#" class="btn btn-danger">Turn off</a>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img id="qualityImage" class="card-img-top" src="%qualityImage%" alt="Air Quality Image">
+                    <div class="card">
+                        <img id="qualityImage" class="card-img-top" src="https://raw.githubusercontent.com/alexander-sosa/iot-final-project/main/img/fan on.png" alt="Air Quality Image">
                         <div class="card-body">
                             <h5 class="card-title">Fan 3</h5>
-                            <p id="qualityMessage" class="card-text">%qualityMessage%</p>
-                            <p id="qualityMessage" class="card-text">Percentage: %qualityMessage%</p>
+                            <p id="qualityMessage" class="card-text">State: %fan3State%</p>
                             <a href="#" class="btn btn-danger">Turn off</a>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img id="qualityImage" class="card-img-top" src="%qualityImage%" alt="Air Quality Image">
+                    <div class="card">
+                        <img id="qualityImage" class="card-img-top" src="https://raw.githubusercontent.com/alexander-sosa/iot-final-project/main/img/fan off.png" alt="Air Quality Image">
                         <div class="card-body">
                             <h5 class="card-title">Fan 4</h5>
-                            <p id="qualityMessage" class="card-text">%qualityMessage%</p>
-                            <p id="qualityMessage" class="card-text">Percentage: %qualityMessage%</p>
+                            <p id="qualityMessage" class="card-text">State: %fan4State%</p>
                             <a href="#" class="btn btn-success">Turn on</a>
                         </div>
                     </div>
@@ -78,9 +89,9 @@
     </div>
 
     <footer>
-        <br><br>
+        <br><br><br>
         <p style="text-align: center;">
-            Designed by: <br>
+            Developed by: <br>
             <a target="_blank" style="color: black;" href="https://www.linkedin.com/in/alexander-sosa-asillanes">Alexander Sosa</a><br>
             <a target="_blank" style="color: black;" href="https://www.linkedin.com/in/alexander-sosa-asillanes">Aracely Torrez</a><br>
             <a target="_blank" style="color: black;" href="https://www.linkedin.com/in/alexander-sosa-asillanes">Valeria Aguirre</a><br>
