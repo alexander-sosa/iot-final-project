@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NodeMCU Station</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md mynavbar">
+        <img src='https://raw.githubusercontent.com/alexander-sosa/iot-leds-test/main/images/ucblogo.png' width='280' height='150' class='d-inline-block align-top'>
+        <ul class="navbar-nav ms-auto">
+            <li><h1>Internet de las Cosas</h1></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <center>
+            <h1>Control Panel</h1><br>
+            <div class="card" style="width: 18rem;">
+                <img id="qualityImage" class="card-img-top" src="%qualityImage%" alt="Air Quality Image">
+                <div class="card-body">
+                    <h5 class="card-title">Air Quality</h5>
+                    <p id="qualityMessage" class="card-text">%qualityMessage%</p>
+                    <p id="qualityMessage" class="card-text">Percentage: %qualityMessage%</p>
+                    <a href="#" class="btn btn-warning">Enable Manual Control</a>
+                </div>
+            </div>
+
+            <br><br><h1>Fan's Control Panel</h1><br>
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img id="qualityImage" class="card-img-top" src="%qualityImage%" alt="Air Quality Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Fan 1</h5>
+                            <p id="qualityMessage" class="card-text">%qualityMessage%</p>
+                            <p id="qualityMessage" class="card-text">Percentage: %qualityMessage%</p>
+                            <a href="#" class="btn btn-success">Turn on</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img id="qualityImage" class="card-img-top" src="%qualityImage%" alt="Air Quality Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Fan 2</h5>
+                            <p id="qualityMessage" class="card-text">%qualityMessage%</p>
+                            <p id="qualityMessage" class="card-text">Percentage: %qualityMessage%</p>
+                            <a href="#" class="btn btn-danger">Turn off</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img id="qualityImage" class="card-img-top" src="%qualityImage%" alt="Air Quality Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Fan 3</h5>
+                            <p id="qualityMessage" class="card-text">%qualityMessage%</p>
+                            <p id="qualityMessage" class="card-text">Percentage: %qualityMessage%</p>
+                            <a href="#" class="btn btn-danger">Turn off</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img id="qualityImage" class="card-img-top" src="%qualityImage%" alt="Air Quality Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Fan 4</h5>
+                            <p id="qualityMessage" class="card-text">%qualityMessage%</p>
+                            <p id="qualityMessage" class="card-text">Percentage: %qualityMessage%</p>
+                            <a href="#" class="btn btn-success">Turn on</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </center>
+    </div>
+
+    <footer>
+        <br><br>
+        <p style="text-align: center;">
+            Designed by: <br>
+            <a target="_blank" style="color: black;" href="https://www.linkedin.com/in/alexander-sosa-asillanes">Alexander Sosa</a><br>
+            <a target="_blank" style="color: black;" href="https://www.linkedin.com/in/alexander-sosa-asillanes">Aracely Torrez</a><br>
+            <a target="_blank" style="color: black;" href="https://www.linkedin.com/in/alexander-sosa-asillanes">Valeria Aguirre</a><br>
+        </p>
+        <br><br>
+    </footer>
+
+    <script>
+        // XHTTP
+        /*
+        setInterval(function(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("pirMessage").innerHTML = this.responseText;
+                }
+            }
+            xhttp.open("GET", "/pirMessage", true);
+            xhttp.send();
+        }, 5000);
+
+        setInterval(function(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("pressenceImage").src = this.responseText;
+                }
+            }
+            xhttp.open("GET", "/pressenceImage", true);
+            xhttp.send();
+        }, 5000);
+        */
+    </script>
+</body>
+</html>
