@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NodeMCU Station</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md mynavbar">
+        <img src='https://raw.githubusercontent.com/alexander-sosa/iot-leds-test/main/images/ucblogo.png' width='280' height='150' class='d-inline-block align-top'>
+        <ul class="navbar-nav ms-auto">
+            <li><h1>Internet de las Cosas</h1></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <center>
+            <h1>Control Panel</h1>
+            <div class="container mt-5">
+                System: 
+                <label class="switch">
+                    <input type="checkbox" id="switch" onclick="switchState(); redirect()" %checkedState%>
+                    <span class="slider round"></span>
+                </label> 
+                <br><br>  
+            <div class="Controls" id="Controls" style="display: none;">
+                     
+                    <div class="card cardwidth">
+                        <div class="row cardpadding">
+                            <div class="col-md-3">
+                                <center>
+                                 <p style="text-align: center;">
+                                    <img id="qualityImage" class="card-img-top" src="%qualityImage%" alt="Air Quality Image" style="width: 200px; height: 200px;">
+                                </p>
+                                </center>
+                            </div>
+                            <div class="col-md-9 mt-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Air Quality</h5>
+                                    <p id="qualityMessage" class="card-text">%qualityMessage%</p>
+                                    <p id="" class="card-text"> 
+                                        Percentage: 
+                                        <input type="range" min="0" max="100" id="slider"><span id="qualityPercentage">%qualityPercentage%</span>&#37;<br>
+                                        Current mode: <span id="currentMode">%currentMode%</span>
+                                    </p>
+                                    %modeButton%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+        
+                <br><br><br><h1>Fan's Control Panel</h1><br>
+                <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4">
+                    
+                    <div class="col">
+                        <div class="card">
+                            <img id="fan1Image" class="card-img-top" src="%fan1Image%" alt="Air Quality Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Fan 1</h5>
+                                <p id="fan1State" class="card-text">State: %fan1State%</p>
+                                %fan1Button%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img id="fan2Image" class="card-img-top" src="%fan2Image%" alt="Air Quality Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Fan 2</h5>
+                                <p id="fan2State" class="card-text">State: %fan2State%</p>
+                                %fan2Button%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img id="fan3Image" class="card-img-top" src="%fan3Image%" alt="Air Quality Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Fan 3</h5>
+                                <p id="fan3State" class="card-text">State: %fan3State%</p>
+                                %fan3Button%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img id="fan4Image" class="card-img-top" src="%fan4Image%" alt="Air Quality Image">
+                            <div class="card-body">
+                                <h5 class="card-title">Fan 4</h5>
+                                <p id="fan4State" class="card-text">State: %fan4State%</p>
+                                %fan4Button%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </center>
+    </div>
+
+    <div id="computerOff">
+        <center>
+        <img src="https://media.istockphoto.com/vectors/isolated-line-art-laptop-with-an-off-button-vector-id865540928?k=20&m=865540928&s=612x612&w=0&h=HGI_843gIM2jVPjogSEPVGcdwovFDRT_7tAsQJ_fR4A=" width="200px">
+        <p>
+            El sistema está apagado
+        </p>
+        </center>
+    </div>
+
+    <footer>
+        <br><br><br>
+        <p style="text-align: center;">
+            Developed by: <br>
+            <a target="_blank" style="color: black;" href="https://www.linkedin.com/in/alexander-sosa-asillanes">Alexander Sosa</a><br>
+            <a target="_blank" style="color: black;" href="https://www.linkedin.com/in/alexander-sosa-asillanes">Aracely Torrez</a><br>
+            <a target="_blank" style="color: black;" href="https://github.com/Valeria-Aguirre-Uzquiano">Valeria Aguirre</a><br>
+        </p>
+        <br><br>
+    </footer>
+
+    <script>
+        window.onload = function(){
+            var ctr = document.getElementById("Controls");
+            var imgOff = document.getElementById("computerOff");
+            var state = document.getElementById("switch");
+            if (state.checked) {
+                ctr.style.display = "";                
+                imgOff.style.display = "none";
+            }
+            else{
+                ctr.style.display = "none";
+                imgOff.style.display = "";
+            }
+        }
+
+        function redirect(){            
+            var state = document.getElementById("switch");
+            if (state.checked) {
+                window.location='/system_on';
+            }
+            else{
+                window.location='/system_off';
+            }
+        }
+
+        function switchState(){
+            var ctr = document.getElementById("Controls");
+            var imgOff = document.getElementById("computerOff");
+            var state = document.getElementById("switch");
+            if (state.checked) {
+                ctr.style.display = "";                
+                imgOff.style.display = "none";
+            }
+            else{
+                ctr.style.display = "none";
+                imgOff.style.display = "";
+            }
+        }
+
+
+        // XHTTP
+        setInterval(function(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("qualityMessage").innerHTML = this.responseText;
+                }
+            }
+            xhttp.open("GET", "/qualityMessage", true);
+            xhttp.send();
+        }, 5000);
+
+        setInterval(function(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("qualityPercentage").innerHTML = this.responseText;
+                    document.getElementById("slider").valueAsNumber = this.responseText;
+                }
+            }
+            xhttp.open("GET", "/qualityPercentage", true);
+            xhttp.send();
+        }, 5000);
+
+        setInterval(function(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("currentMode").innerHTML = this.responseText;
+                }
+            }
+            xhttp.open("GET", "/currentMode", true);
+            xhttp.send();
+        }, 5000);
+
+        setInterval(function(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("qualityImage").src = this.responseText;
+                }
+            }
+            xhttp.open("GET", "/qualityImage", true);
+            xhttp.send();
+        }, 5000);
+
+        setInterval(function(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("fan1Image").src = this.responseText;
+                }
+            }
+            xhttp.open("GET", "/fan1Image", true);
+            xhttp.send();
+        }, 5000);
+
+        setInterval(function(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("fan2Image").src = this.responseText;
+                }
+            }
+            xhttp.open("GET", "/fan2Image", true);
+            xhttp.send();
+        }, 5000);
+
+        setInterval(function(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("fan3Image").src = this.responseText;
+                }
+            }
+            xhttp.open("GET", "/fan3Image", true);
+            xhttp.send();
+        }, 5000);
+
+        setInterval(function(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("fan4Image").src = this.responseText;
+                }
+            }
+            xhttp.open("GET", "/fan4Image", true);
+            xhttp.send();
+        }, 5000);
+
+        setInterval(function(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("fan1State").innerHTML = this.responseText;
+                }
+            }
+            xhttp.open("GET", "/fan1State", true);
+            xhttp.send();
+        }, 5000);
+
+        setInterval(function(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("fan2State").innerHTML = this.responseText;
+                }
+            }
+            xhttp.open("GET", "/fan2State", true);
+            xhttp.send();
+        }, 5000);
+
+        setInterval(function(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("fan3State").innerHTML = this.responseText;
+                }
+            }
+            xhttp.open("GET", "/fan3State", true);
+            xhttp.send();
+        }, 5000);
+
+        setInterval(function(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("fan4State").innerHTML = this.responseText;
+                }
+            }
+            xhttp.open("GET", "/fan4State", true);
+            xhttp.send();
+        }, 5000);
+    </script>
+</body>
+</html>
