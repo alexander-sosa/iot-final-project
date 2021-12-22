@@ -1,10 +1,10 @@
-# iot-final-project
-Project Name: Air Quality Control to help preventing COVID-19 infection
+# Air Quality Control to help preventing COVID-19 infection
+Automatic fans automatically triggered or stopped based on the environment air quality. 
 
 ## Team Members
 - Valeria Aguirre
-- Aracely Torrez
 - Alexander Sosa
+- Aracely Torrez
 
 ## Technologies Used
 - NodeMCU
